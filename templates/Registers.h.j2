@@ -1,0 +1,21 @@
+class {{Register.name}} : public Register
+{
+public:
+    {{Register.name}}(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+    {% for BitField in Register.bitFields %}
+    uint8_t get_{{BitField.name}}();
+    void set_{{BitField.name}}(uint8_t);
+    {% endfor %}
+};
+
+{% for BitField in Register.bitFields %}
+uint8_t {{Register.name}}::get_{{BitField.name}}()
+{
+    return get({{BitField.startBit}}, {{BitField.bitLength}});
+}
+void {{Register.name}}::set_{{BitField.name}}(uint8_t bitField)
+{
+    set({{BitField.startBit}}, {{BitField.bitLength}}, bitField);
+}
+{% endfor %}
+

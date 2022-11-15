@@ -1,108 +1,562 @@
-#pragma once
+#pragma once 
 #include "RegisterClass.h"
 namespace max17851
 {
-    class AlrtenRxRegister : Register
-    {
-    public:
-        Bits RX_EMPTY_ALRTEN;
-        Bits RX_STOP_ALRTEN;
-        Bits RX_FULL_ALRTEN;
-        Bits RX_OVRFLW_ERR_ALRTEN;
-        Bits RX_IDLE_ALRTEN;
-        Bits RX_BUSY_ALRTEN;
-        Bits RX_ERR_ALRTEN;
-        AlrtenRxRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress),
-                                                                                  RX_EMPTY_ALRTEN(0, 1), RX_STOP_ALRTEN(1, 1), RX_FULL_ALRTEN(2, 1),
-                                                                                  RX_OVRFLW_ERR_ALRTEN(3, 1), RX_IDLE_ALRTEN(4, 1), RX_BUSY_ALRTEN(5, 1),
-                                                                                  RX_ERR_ALRTEN(7, 1) {}
-    };
 
-    class AlrtenTxRegister : Register
-    {
-    public:
-        Bits TX_EMPTY_ALRTEN;
-        Bits TX_STOP_ALRTEN;
-        Bits TX_FULL_ALRTEN;
-        Bits TX_OVRFLW_ERR_ALRTEN;
-        Bits TX_IDLE_ALRTEN;
-        Bits TX_BUSY_ALRTEN;
-        Bits TX_ERR_ALRTEN;
-        AlrtenTxRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress),
-                                                                                  TX_EMPTY_ALRTEN(0, 1), TX_STOP_ALRTEN(1, 1), TX_FULL_ALRTEN(2, 1),
-                                                                                  TX_OVRFLW_ERR_ALRTEN(3, 1), TX_IDLE_ALRTEN(4, 1), TX_BUSY_ALRTEN(5, 1),
-                                                                                  TX_ERR_ALRTEN(7, 1) {}
-    };
+class AlrtenRxRegister : public Register
+{
+public:
+    AlrtenRxRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+    
+    uint8_t get_RX_EMPTY_ALRTEN();
+    void set_RX_EMPTY_ALRTEN(uint8_t);
+    
+    uint8_t get_RX_STOP_ALRTEN();
+    void set_RX_STOP_ALRTEN(uint8_t);
+    
+    uint8_t get_RX_FULL_ALRTEN();
+    void set_RX_FULL_ALRTEN(uint8_t);
+    
+    uint8_t get_RX_OVRFLW_ERR_ALRTEN();
+    void set_RX_OVRFLW_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_RX_IDLE_ALRTEN();
+    void set_RX_IDLE_ALRTEN(uint8_t);
+    
+    uint8_t get_RX_BUSY_ALRTEN();
+    void set_RX_BUSY_ALRTEN(uint8_t);
+    
+    uint8_t get_RX_ERR_ALRTEN();
+    void set_RX_ERR_ALRTEN(uint8_t);
+    
+};
 
-    class AlrtenLssmByteRegister : Register
-    {
-    public:
-        Bits HW_ERR_ALRTEN;
-        Bits ALIVECOUNT_ERR_ALRTEN;
-        Bits COMMAND_OP_ALRTEN;
-        Bits COMM_MSMTCH_ERR_ALRTEN;
-        Bits ALRTPCKT_ERR_ALRTEN;
-        Bits COMM_ERR_ALRTEN;
-        Bits ALRTPCKT_STATUS_ERR_ALRTEN;
-        Bits RX_READY_ALRTEN;
-        AlrtenLssmByteRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress),
-                                                                                        HW_ERR_ALRTEN(0, 1), ALIVECOUNT_ERR_ALRTEN(1, 1), COMMAND_OP_ALRTEN(2, 1),
-                                                                                        COMM_MSMTCH_ERR_ALRTEN(3, 1), ALRTPCKT_ERR_ALRTEN(4, 1), COMM_ERR_ALRTEN(5, 1),
-                                                                                        ALRTPCKT_STATUS_ERR_ALRTEN(6, 1), RX_READY_ALRTEN(7, 1) {}
-    };
 
-    class AlrtenGenRegister : Register
-    {
-    public:
-        Bits ALRTPCKTBUF_HW_ERR_ALRTEN;
-        Bits ALRTPCKT_COMM_ERR_ALRTEN;
-        Bits DATAPATH_ERR_ALRTEN;
-        Bits GPIO_ERR_ALRTEN;
-        Bits WD_ERR_ALRTEN;
-        Bits DEV_COUNT_ERR_ALRTEN;
-        Bits HFOSC_HW_ERRB_ALRTEN;
-        AlrtenGenRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress),
-                                                                                   ALRTPCKTBUF_HW_ERR_ALRTEN(0, 1), ALRTPCKT_COMM_ERR_ALRTEN(1, 1), DATAPATH_ERR_ALRTEN(3, 1),
-                                                                                   GPIO_ERR_ALRTEN(4, 1), WD_ERR_ALRTEN(5, 1), DEV_COUNT_ERR_ALRTEN(6, 1), HFOSC_HW_ERRB_ALRTEN(7, 1) {}
-    };
+uint8_t AlrtenRxRegister::get_RX_EMPTY_ALRTEN()
+{
+    return get(0, 1);
+}
+void AlrtenRxRegister::set_RX_EMPTY_ALRTEN(uint8_t bitField)
+{
+    set(0, 1, bitField);
+}
 
-    class AlrtenOpstateRegister : Register
-    {
-    public:
-        Bits SAFEMON_ALRTEN;
-        AlrtenOpstateRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress),
-                                                                                       SAFEMON_ALRTEN(3, 1) {}
-    };
+uint8_t AlrtenRxRegister::get_RX_STOP_ALRTEN()
+{
+    return get(1, 1);
+}
+void AlrtenRxRegister::set_RX_STOP_ALRTEN(uint8_t bitField)
+{
+    set(1, 1, bitField);
+}
 
-    class AlrtenBufRegister : Register
-    {
-    public:
-        Bits LSSM_FULL_ALRTEN;
-        Bits ALRTPCKTBUF_FULL_ALRTEN;
-        AlrtenBufRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress),
-                                                                                   LSSM_FULL_ALRTEN(3, 1), ALRTPCKTBUF_FULL_ALRTEN(7, 1) {}
-    };
+uint8_t AlrtenRxRegister::get_RX_FULL_ALRTEN()
+{
+    return get(2, 1);
+}
+void AlrtenRxRegister::set_RX_FULL_ALRTEN(uint8_t bitField)
+{
+    set(2, 1, bitField);
+}
 
-    class AlrtenWdRegister : Register
-    {
-    public:
-        Bits WD_EXP_ERR_ALRTEN;
-        Bits WD_RJCT_ERR_ALRTEN;
-        Bits WD_LFSR_ERR_ALRTEN;
-        Bits WD_OPEN_ALRTEN;
-        Bits WD_TO_ERR_ALRTEN;
-        AlrtenWdRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress),
-                                                                                  WD_EXP_ERR_ALRTEN(0, 1), WD_RJCT_ERR_ALRTEN(1, 1), WD_LFSR_ERR_ALRTEN(2, 1), WD_OPEN_ALRTEN(3, 1), WD_TO_ERR_ALRTEN(4, 1) {}
-    };
+uint8_t AlrtenRxRegister::get_RX_OVRFLW_ERR_ALRTEN()
+{
+    return get(3, 1);
+}
+void AlrtenRxRegister::set_RX_OVRFLW_ERR_ALRTEN(uint8_t bitField)
+{
+    set(3, 1, bitField);
+}
 
-    class AlrtenGpioRegister : Register
-    {
-    public:
-        Bits GPIO1_ERR_ALRTEN;
-        Bits GPIO2_ERR_ALRTEN;
-        Bits GPIO3_ERR_ALRTEN;
-        Bits GPIO4_ERR_ALRTEN;
-        AlrtenGpioRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress),
-                                                                                    GPIO1_ERR_ALRTEN(0, 1), GPIO2_ERR_ALRTEN(1, 1), GPIO3_ERR_ALRTEN(2, 1), GPIO4_ERR_ALRTEN(3, 1) {}
-    };
+uint8_t AlrtenRxRegister::get_RX_IDLE_ALRTEN()
+{
+    return get(4, 1);
+}
+void AlrtenRxRegister::set_RX_IDLE_ALRTEN(uint8_t bitField)
+{
+    set(4, 1, bitField);
+}
+
+uint8_t AlrtenRxRegister::get_RX_BUSY_ALRTEN()
+{
+    return get(5, 1);
+}
+void AlrtenRxRegister::set_RX_BUSY_ALRTEN(uint8_t bitField)
+{
+    set(5, 1, bitField);
+}
+
+uint8_t AlrtenRxRegister::get_RX_ERR_ALRTEN()
+{
+    return get(7, 1);
+}
+void AlrtenRxRegister::set_RX_ERR_ALRTEN(uint8_t bitField)
+{
+    set(7, 1, bitField);
+}
+
+class AlrtenTxRegister : public Register
+{
+public:
+    AlrtenTxRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+    
+    uint8_t get_TX_EMPTY_ALRTEN();
+    void set_TX_EMPTY_ALRTEN(uint8_t);
+    
+    uint8_t get_TX_STOP_ALRTEN();
+    void set_TX_STOP_ALRTEN(uint8_t);
+    
+    uint8_t get_TX_FULL_ALRTEN();
+    void set_TX_FULL_ALRTEN(uint8_t);
+    
+    uint8_t get_TX_OVRFLW_ERR_ALRTEN();
+    void set_TX_OVRFLW_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_TX_IDLE_ALRTEN();
+    void set_TX_IDLE_ALRTEN(uint8_t);
+    
+    uint8_t get_TX_BUSY_ALRTEN();
+    void set_TX_BUSY_ALRTEN(uint8_t);
+    
+    uint8_t get_TX_ERR_ALRTEN();
+    void set_TX_ERR_ALRTEN(uint8_t);
+    
+};
+
+
+uint8_t AlrtenTxRegister::get_TX_EMPTY_ALRTEN()
+{
+    return get(0, 1);
+}
+void AlrtenTxRegister::set_TX_EMPTY_ALRTEN(uint8_t bitField)
+{
+    set(0, 1, bitField);
+}
+
+uint8_t AlrtenTxRegister::get_TX_STOP_ALRTEN()
+{
+    return get(1, 1);
+}
+void AlrtenTxRegister::set_TX_STOP_ALRTEN(uint8_t bitField)
+{
+    set(1, 1, bitField);
+}
+
+uint8_t AlrtenTxRegister::get_TX_FULL_ALRTEN()
+{
+    return get(2, 1);
+}
+void AlrtenTxRegister::set_TX_FULL_ALRTEN(uint8_t bitField)
+{
+    set(2, 1, bitField);
+}
+
+uint8_t AlrtenTxRegister::get_TX_OVRFLW_ERR_ALRTEN()
+{
+    return get(3, 1);
+}
+void AlrtenTxRegister::set_TX_OVRFLW_ERR_ALRTEN(uint8_t bitField)
+{
+    set(3, 1, bitField);
+}
+
+uint8_t AlrtenTxRegister::get_TX_IDLE_ALRTEN()
+{
+    return get(4, 1);
+}
+void AlrtenTxRegister::set_TX_IDLE_ALRTEN(uint8_t bitField)
+{
+    set(4, 1, bitField);
+}
+
+uint8_t AlrtenTxRegister::get_TX_BUSY_ALRTEN()
+{
+    return get(5, 1);
+}
+void AlrtenTxRegister::set_TX_BUSY_ALRTEN(uint8_t bitField)
+{
+    set(5, 1, bitField);
+}
+
+uint8_t AlrtenTxRegister::get_TX_ERR_ALRTEN()
+{
+    return get(7, 1);
+}
+void AlrtenTxRegister::set_TX_ERR_ALRTEN(uint8_t bitField)
+{
+    set(7, 1, bitField);
+}
+
+class AlrtenLssmByteRegister : public Register
+{
+public:
+    AlrtenLssmByteRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+    
+    uint8_t get_HW_ERR_ALRTEN();
+    void set_HW_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_ALIVECOUNT_ERR_ALRTEN();
+    void set_ALIVECOUNT_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_COMMAND_OP_ALRTEN();
+    void set_COMMAND_OP_ALRTEN(uint8_t);
+    
+    uint8_t get_COMM_MSMTCH_ERR_ALRTEN();
+    void set_COMM_MSMTCH_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_ALRTPCKT_ERR_ALRTEN();
+    void set_ALRTPCKT_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_COMM_ERR_ALRTEN();
+    void set_COMM_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_ALRTPCKT_STATUS_ERR_ALRTEN();
+    void set_ALRTPCKT_STATUS_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_RX_READY_ALRTEN();
+    void set_RX_READY_ALRTEN(uint8_t);
+    
+};
+
+
+uint8_t AlrtenLssmByteRegister::get_HW_ERR_ALRTEN()
+{
+    return get(0, 1);
+}
+void AlrtenLssmByteRegister::set_HW_ERR_ALRTEN(uint8_t bitField)
+{
+    set(0, 1, bitField);
+}
+
+uint8_t AlrtenLssmByteRegister::get_ALIVECOUNT_ERR_ALRTEN()
+{
+    return get(1, 1);
+}
+void AlrtenLssmByteRegister::set_ALIVECOUNT_ERR_ALRTEN(uint8_t bitField)
+{
+    set(1, 1, bitField);
+}
+
+uint8_t AlrtenLssmByteRegister::get_COMMAND_OP_ALRTEN()
+{
+    return get(2, 1);
+}
+void AlrtenLssmByteRegister::set_COMMAND_OP_ALRTEN(uint8_t bitField)
+{
+    set(2, 1, bitField);
+}
+
+uint8_t AlrtenLssmByteRegister::get_COMM_MSMTCH_ERR_ALRTEN()
+{
+    return get(3, 1);
+}
+void AlrtenLssmByteRegister::set_COMM_MSMTCH_ERR_ALRTEN(uint8_t bitField)
+{
+    set(3, 1, bitField);
+}
+
+uint8_t AlrtenLssmByteRegister::get_ALRTPCKT_ERR_ALRTEN()
+{
+    return get(4, 1);
+}
+void AlrtenLssmByteRegister::set_ALRTPCKT_ERR_ALRTEN(uint8_t bitField)
+{
+    set(4, 1, bitField);
+}
+
+uint8_t AlrtenLssmByteRegister::get_COMM_ERR_ALRTEN()
+{
+    return get(5, 1);
+}
+void AlrtenLssmByteRegister::set_COMM_ERR_ALRTEN(uint8_t bitField)
+{
+    set(5, 1, bitField);
+}
+
+uint8_t AlrtenLssmByteRegister::get_ALRTPCKT_STATUS_ERR_ALRTEN()
+{
+    return get(6, 1);
+}
+void AlrtenLssmByteRegister::set_ALRTPCKT_STATUS_ERR_ALRTEN(uint8_t bitField)
+{
+    set(6, 1, bitField);
+}
+
+uint8_t AlrtenLssmByteRegister::get_RX_READY_ALRTEN()
+{
+    return get(7, 1);
+}
+void AlrtenLssmByteRegister::set_RX_READY_ALRTEN(uint8_t bitField)
+{
+    set(7, 1, bitField);
+}
+
+class AlrtenGenRegister : public Register
+{
+public:
+    AlrtenGenRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+    
+    uint8_t get_ALRTPCKTBUF_HW_ERR_ALRTEN();
+    void set_ALRTPCKTBUF_HW_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_ALRTPCKT_COMM_ERR_ALRTEN();
+    void set_ALRTPCKT_COMM_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_DATAPATH_ERR_ALRTEN();
+    void set_DATAPATH_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_GPIO_ERR_ALRTEN();
+    void set_GPIO_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_WD_ERR_ALRTEN();
+    void set_WD_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_DEV_COUNT_ERR_ALRTEN();
+    void set_DEV_COUNT_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_HFOSC_HW_ERRB_ALRTEN();
+    void set_HFOSC_HW_ERRB_ALRTEN(uint8_t);
+    
+};
+
+
+uint8_t AlrtenGenRegister::get_ALRTPCKTBUF_HW_ERR_ALRTEN()
+{
+    return get(0, 1);
+}
+void AlrtenGenRegister::set_ALRTPCKTBUF_HW_ERR_ALRTEN(uint8_t bitField)
+{
+    set(0, 1, bitField);
+}
+
+uint8_t AlrtenGenRegister::get_ALRTPCKT_COMM_ERR_ALRTEN()
+{
+    return get(1, 1);
+}
+void AlrtenGenRegister::set_ALRTPCKT_COMM_ERR_ALRTEN(uint8_t bitField)
+{
+    set(1, 1, bitField);
+}
+
+uint8_t AlrtenGenRegister::get_DATAPATH_ERR_ALRTEN()
+{
+    return get(3, 1);
+}
+void AlrtenGenRegister::set_DATAPATH_ERR_ALRTEN(uint8_t bitField)
+{
+    set(3, 1, bitField);
+}
+
+uint8_t AlrtenGenRegister::get_GPIO_ERR_ALRTEN()
+{
+    return get(4, 1);
+}
+void AlrtenGenRegister::set_GPIO_ERR_ALRTEN(uint8_t bitField)
+{
+    set(4, 1, bitField);
+}
+
+uint8_t AlrtenGenRegister::get_WD_ERR_ALRTEN()
+{
+    return get(5, 1);
+}
+void AlrtenGenRegister::set_WD_ERR_ALRTEN(uint8_t bitField)
+{
+    set(5, 1, bitField);
+}
+
+uint8_t AlrtenGenRegister::get_DEV_COUNT_ERR_ALRTEN()
+{
+    return get(6, 1);
+}
+void AlrtenGenRegister::set_DEV_COUNT_ERR_ALRTEN(uint8_t bitField)
+{
+    set(6, 1, bitField);
+}
+
+uint8_t AlrtenGenRegister::get_HFOSC_HW_ERRB_ALRTEN()
+{
+    return get(7, 1);
+}
+void AlrtenGenRegister::set_HFOSC_HW_ERRB_ALRTEN(uint8_t bitField)
+{
+    set(7, 1, bitField);
+}
+
+class AlrtenOpstateRegister : public Register
+{
+public:
+    AlrtenOpstateRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+    
+    uint8_t get_SAFEMON_ALRTEN();
+    void set_SAFEMON_ALRTEN(uint8_t);
+    
+};
+
+
+uint8_t AlrtenOpstateRegister::get_SAFEMON_ALRTEN()
+{
+    return get(3, 1);
+}
+void AlrtenOpstateRegister::set_SAFEMON_ALRTEN(uint8_t bitField)
+{
+    set(3, 1, bitField);
+}
+
+class AlrtenBufRegister : public Register
+{
+public:
+    AlrtenBufRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+    
+    uint8_t get_LSSM_FULL_ALRTEN();
+    void set_LSSM_FULL_ALRTEN(uint8_t);
+    
+    uint8_t get_ALRTPCKTBUF_FULL_ALRTEN();
+    void set_ALRTPCKTBUF_FULL_ALRTEN(uint8_t);
+    
+};
+
+
+uint8_t AlrtenBufRegister::get_LSSM_FULL_ALRTEN()
+{
+    return get(3, 1);
+}
+void AlrtenBufRegister::set_LSSM_FULL_ALRTEN(uint8_t bitField)
+{
+    set(3, 1, bitField);
+}
+
+uint8_t AlrtenBufRegister::get_ALRTPCKTBUF_FULL_ALRTEN()
+{
+    return get(7, 1);
+}
+void AlrtenBufRegister::set_ALRTPCKTBUF_FULL_ALRTEN(uint8_t bitField)
+{
+    set(7, 1, bitField);
+}
+
+class AlrtenWdRegister : public Register
+{
+public:
+    AlrtenWdRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+    
+    uint8_t get_WD_EXP_ERR_ALRTEN();
+    void set_WD_EXP_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_WD_RJCT_ERR_ALRTEN();
+    void set_WD_RJCT_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_WD_LFSR_ERR_ALRTEN();
+    void set_WD_LFSR_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_WD_OPEN_ALRTEN();
+    void set_WD_OPEN_ALRTEN(uint8_t);
+    
+    uint8_t get_WD_TO_ERR_ALRTEN();
+    void set_WD_TO_ERR_ALRTEN(uint8_t);
+    
+};
+
+
+uint8_t AlrtenWdRegister::get_WD_EXP_ERR_ALRTEN()
+{
+    return get(0, 1);
+}
+void AlrtenWdRegister::set_WD_EXP_ERR_ALRTEN(uint8_t bitField)
+{
+    set(0, 1, bitField);
+}
+
+uint8_t AlrtenWdRegister::get_WD_RJCT_ERR_ALRTEN()
+{
+    return get(1, 1);
+}
+void AlrtenWdRegister::set_WD_RJCT_ERR_ALRTEN(uint8_t bitField)
+{
+    set(1, 1, bitField);
+}
+
+uint8_t AlrtenWdRegister::get_WD_LFSR_ERR_ALRTEN()
+{
+    return get(2, 1);
+}
+void AlrtenWdRegister::set_WD_LFSR_ERR_ALRTEN(uint8_t bitField)
+{
+    set(2, 1, bitField);
+}
+
+uint8_t AlrtenWdRegister::get_WD_OPEN_ALRTEN()
+{
+    return get(3, 1);
+}
+void AlrtenWdRegister::set_WD_OPEN_ALRTEN(uint8_t bitField)
+{
+    set(3, 1, bitField);
+}
+
+uint8_t AlrtenWdRegister::get_WD_TO_ERR_ALRTEN()
+{
+    return get(4, 1);
+}
+void AlrtenWdRegister::set_WD_TO_ERR_ALRTEN(uint8_t bitField)
+{
+    set(4, 1, bitField);
+}
+
+class AlrtenGpioRegister : public Register
+{
+public:
+    AlrtenGpioRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+    
+    uint8_t get_GPIO1_ERR_ALRTEN();
+    void set_GPIO1_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_GPIO2_ERR_ALRTEN();
+    void set_GPIO2_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_GPIO3_ERR_ALRTEN();
+    void set_GPIO3_ERR_ALRTEN(uint8_t);
+    
+    uint8_t get_GPIO4_ERR_ALRTEN();
+    void set_GPIO4_ERR_ALRTEN(uint8_t);
+    
+};
+
+
+uint8_t AlrtenGpioRegister::get_GPIO1_ERR_ALRTEN()
+{
+    return get(0, 1);
+}
+void AlrtenGpioRegister::set_GPIO1_ERR_ALRTEN(uint8_t bitField)
+{
+    set(0, 1, bitField);
+}
+
+uint8_t AlrtenGpioRegister::get_GPIO2_ERR_ALRTEN()
+{
+    return get(1, 1);
+}
+void AlrtenGpioRegister::set_GPIO2_ERR_ALRTEN(uint8_t bitField)
+{
+    set(1, 1, bitField);
+}
+
+uint8_t AlrtenGpioRegister::get_GPIO3_ERR_ALRTEN()
+{
+    return get(2, 1);
+}
+void AlrtenGpioRegister::set_GPIO3_ERR_ALRTEN(uint8_t bitField)
+{
+    set(2, 1, bitField);
+}
+
+uint8_t AlrtenGpioRegister::get_GPIO4_ERR_ALRTEN()
+{
+    return get(3, 1);
+}
+void AlrtenGpioRegister::set_GPIO4_ERR_ALRTEN(uint8_t bitField)
+{
+    set(3, 1, bitField);
+}
+
 }

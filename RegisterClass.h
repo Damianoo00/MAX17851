@@ -1,21 +1,30 @@
 #pragma once
 #include <stdint.h>
+#include <cmath>
 
 namespace max17851
 {
-    class Bits
+class Register
+{
+public:
+    uint8_t iWriteAddress;
+    uint8_t iReadAddress;
+    uint8_t iRegister;
+    Register(const uint8_t writeAddress, const uint8_t readAddress) : iWriteAddress(writeAddress), iReadAddress(readAddress), iRegister(0) {}
+    uint8_t get(uint8_t startBit, uint8_t lengthBitSet)
     {
-    public:
-        uint16_t startBit;
-        uint16_t length;
-        Bits(const uint16_t startBit, const uint16_t length) : startBit(startBit), length(length) {}
-    };
+        const uint8_t mask = ((uint8_t)pow(2, lengthBitSet) - 1) << startBit;
+        return iRegister & mask >> startBit;
+    }
+    void set(uint8_t startBit, uint8_t lenghBitset, uint8_t val)
+    {
+        const uint8_t mask = ((uint8_t)pow(2, lenghBitset) - 1) << startBit;
+        iRegister &= (~mask);
+        iRegister |= val << startBit;
+    }
 
-    class Register
-    {
-    public:
-        uint8_t iWriteAddress;
-        uint8_t iReadAddress;
-        Register(const uint8_t writeAddress, const uint8_t readAddress) : iWriteAddress(writeAddress), iReadAddress(readAddress) {}
-    };
+public:
+    void sendRegister();
+    void reciveRegister();
+};
 }
