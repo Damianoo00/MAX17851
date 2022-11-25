@@ -1,0 +1,6 @@
+{{className}} &{{className}}::Instance()
+    {
+        static {{className}} _instance({{writeAddr}}, {{readAddr}});
+        return _instance;
+    }
+

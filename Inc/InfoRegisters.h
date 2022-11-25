@@ -8,6 +8,7 @@ namespace max17851
     {
     public:
         StateRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static StateRegister &Instance();
 
         uint8_t get_STATE();
         void set_STATE(uint8_t);
@@ -17,6 +18,7 @@ namespace max17851
     {
     public:
         CommRtryCntRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static CommRtryCntRegister &Instance();
 
         uint8_t get_COMM_RTRY_CNT();
         void set_COMM_RTRY_CNT(uint8_t);
@@ -26,6 +28,7 @@ namespace max17851
     {
     public:
         AlrtpcktErrCntRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static AlrtpcktErrCntRegister &Instance();
 
         uint8_t get_ALRTPCKT_ERR_CNT();
         void set_ALRTPCKT_ERR_CNT(uint8_t);
@@ -35,6 +38,7 @@ namespace max17851
     {
     public:
         WdFaultCntRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static WdFaultCntRegister &Instance();
 
         uint8_t get_WD_FAULT_CNT();
         void set_WD_FAULT_CNT(uint8_t);
@@ -44,6 +48,7 @@ namespace max17851
     {
     public:
         AlivecountSeedRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static AlivecountSeedRegister &Instance();
 
         uint8_t get_ALIVECOUNT_SEED();
         void set_ALIVECOUNT_SEED(uint8_t);
@@ -53,6 +58,7 @@ namespace max17851
     {
     public:
         AlivecountRetRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static AlivecountRetRegister &Instance();
 
         uint8_t get_ALIVECOUNT_RET();
         void set_ALIVECOUNT_RET(uint8_t);
@@ -62,33 +68,51 @@ namespace max17851
     {
     public:
         AlivecountQRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static AlivecountQRegister &Instance();
 
         uint8_t get_ALIVECOUNT_Q();
         void set_ALIVECOUNT_Q(uint8_t);
     };
 
-    class FaultTimerRegister : public Register
+    class FaultTimerRegister0 : public Register
     {
     public:
-        FaultTimerRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        FaultTimerRegister0(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static FaultTimerRegister0 &Instance();
 
         uint8_t get_FAULT_TIMER();
         void set_FAULT_TIMER(uint8_t);
     };
 
-    class SlpCbtimerRegister : public Register
+    class FaultTimerRegister1 : public FaultTimerRegister0
     {
     public:
-        SlpCbtimerRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        FaultTimerRegister1(const uint8_t writeAddress, const uint8_t readAddress) : FaultTimerRegister0(writeAddress, readAddress) {}
+        static FaultTimerRegister1 &Instance();
+    };
+
+    class SlpCbtimerRegister0 : public Register
+    {
+    public:
+        SlpCbtimerRegister0(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static SlpCbtimerRegister0 &Instance();
 
         uint8_t get_SLP_CBTIMER();
         void set_SLP_CBTIMER(uint8_t);
+    };
+
+    class SlpCbtimerRegister1 : public SlpCbtimerRegister0
+    {
+    public:
+        SlpCbtimerRegister1(const uint8_t writeAddress, const uint8_t readAddress) : SlpCbtimerRegister0(writeAddress, readAddress) {}
+        static SlpCbtimerRegister1 &Instance();
     };
 
     class VersionRegister : public Register
     {
     public:
         VersionRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static VersionRegister &Instance();
 
         uint8_t get_VERSION();
         void set_VERSION(uint8_t);
@@ -101,6 +125,7 @@ namespace max17851
     {
     public:
         ModelRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static ModelRegister &Instance();
 
         uint8_t get_MODEL();
         void set_MODEL(uint8_t);

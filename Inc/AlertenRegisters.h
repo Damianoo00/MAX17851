@@ -7,6 +7,7 @@ namespace max17851
     {
     public:
         AlrtenRxRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static AlrtenRxRegister &Instance();
 
         uint8_t get_RX_EMPTY_ALRTEN();
         void set_RX_EMPTY_ALRTEN(uint8_t);
@@ -34,6 +35,7 @@ namespace max17851
     {
     public:
         AlrtenTxRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static AlrtenTxRegister &Instance();
 
         uint8_t get_TX_EMPTY_ALRTEN();
         void set_TX_EMPTY_ALRTEN(uint8_t);
@@ -61,6 +63,7 @@ namespace max17851
     {
     public:
         AlrtenLssmByteRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static AlrtenLssmByteRegister &Instance();
 
         uint8_t get_HW_ERR_ALRTEN();
         void set_HW_ERR_ALRTEN(uint8_t);
@@ -91,6 +94,7 @@ namespace max17851
     {
     public:
         AlrtenGenRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static AlrtenGenRegister &Instance();
 
         uint8_t get_ALRTPCKTBUF_HW_ERR_ALRTEN();
         void set_ALRTPCKTBUF_HW_ERR_ALRTEN(uint8_t);
@@ -118,6 +122,7 @@ namespace max17851
     {
     public:
         AlrtenOpstateRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static AlrtenOpstateRegister &Instance();
 
         uint8_t get_SAFEMON_ALRTEN();
         void set_SAFEMON_ALRTEN(uint8_t);
@@ -127,6 +132,7 @@ namespace max17851
     {
     public:
         AlrtenBufRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static AlrtenBufRegister &Instance();
 
         uint8_t get_LSSM_FULL_ALRTEN();
         void set_LSSM_FULL_ALRTEN(uint8_t);
@@ -139,6 +145,7 @@ namespace max17851
     {
     public:
         AlrtenWdRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static AlrtenWdRegister &Instance();
 
         uint8_t get_WD_EXP_ERR_ALRTEN();
         void set_WD_EXP_ERR_ALRTEN(uint8_t);
@@ -160,6 +167,7 @@ namespace max17851
     {
     public:
         AlrtenGpioRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static AlrtenGpioRegister &Instance();
 
         uint8_t get_GPIO1_ERR_ALRTEN();
         void set_GPIO1_ERR_ALRTEN(uint8_t);

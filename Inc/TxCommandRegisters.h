@@ -8,6 +8,7 @@ namespace max17851
     {
     public:
         NxtLdqRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static NxtLdqRegister &Instance();
 
         uint8_t get_NXT_LDQ();
         void set_NXT_LDQ(uint8_t);
@@ -17,6 +18,7 @@ namespace max17851
     {
     public:
         LdqRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static LdqRegister &Instance();
 
         uint8_t get_LDQ();
         void set_LDQ(uint8_t);
@@ -26,6 +28,7 @@ namespace max17851
     {
     public:
         LdqPtrRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static LdqPtrRegister &Instance();
 
         uint8_t get_LDQ_PTR();
         void set_LDQ_PTR(uint8_t);
@@ -35,6 +38,7 @@ namespace max17851
     {
     public:
         ConfigqRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static ConfigqRegister &Instance();
 
         uint8_t get_CONFIGQ();
         void set_CONFIGQ(uint8_t);
@@ -44,6 +48,7 @@ namespace max17851
     {
     public:
         ConfigPtrRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static ConfigPtrRegister &Instance();
 
         uint8_t get_CONFIG_BYTE_PTR();
         void set_CONFIG_BYTE_PTR(uint8_t);

@@ -58,19 +58,19 @@ namespace max17851
     {
         set(0, 3, bitField);
     }
-    uint8_t FaultTimerRegister::get_FAULT_TIMER()
+    uint8_t FaultTimerRegister0::get_FAULT_TIMER()
     {
         return get(0, 8);
     }
-    void FaultTimerRegister::set_FAULT_TIMER(uint8_t bitField)
+    void FaultTimerRegister0::set_FAULT_TIMER(uint8_t bitField)
     {
         set(0, 8, bitField);
     }
-    uint8_t SlpCbtimerRegister::get_SLP_CBTIMER()
+    uint8_t SlpCbtimerRegister0::get_SLP_CBTIMER()
     {
         return get(0, 8);
     }
-    void SlpCbtimerRegister::set_SLP_CBTIMER(uint8_t bitField)
+    void SlpCbtimerRegister0::set_SLP_CBTIMER(uint8_t bitField)
     {
         set(0, 8, bitField);
     }

@@ -8,6 +8,7 @@ namespace max17851
     {
     public:
         StatusRxRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static StatusRxRegister &Instance();
 
         uint8_t get_RX_EMPTY();
         void set_RX_EMPTY(uint8_t);
@@ -35,6 +36,7 @@ namespace max17851
     {
     public:
         StatusTxRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static StatusTxRegister &Instance();
 
         uint8_t get_TX_EMPTY();
         void set_TX_EMPTY(uint8_t);
@@ -62,6 +64,7 @@ namespace max17851
     {
     public:
         StatusLssmByteRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static StatusLssmByteRegister &Instance();
 
         uint8_t get_HW_ERR();
         void set_HW_ERR(uint8_t);
@@ -92,6 +95,7 @@ namespace max17851
     {
     public:
         StatusGenRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static StatusGenRegister &Instance();
 
         uint8_t get_ALRTPCKTBUF_HW_ERR();
         void set_ALRTPCKTBUF_HW_ERR(uint8_t);
@@ -119,6 +123,7 @@ namespace max17851
     {
     public:
         StatusOpstateRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static StatusOpstateRegister &Instance();
 
         uint8_t get_SAFEMON();
         void set_SAFEMON(uint8_t);
@@ -128,6 +133,7 @@ namespace max17851
     {
     public:
         StatusBufRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static StatusBufRegister &Instance();
 
         uint8_t get_LSSM_FULL();
         void set_LSSM_FULL(uint8_t);
@@ -140,6 +146,7 @@ namespace max17851
     {
     public:
         StatusWdRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static StatusWdRegister &Instance();
 
         uint8_t get_WD_EXP_ERR();
         void set_WD_EXP_ERR(uint8_t);
@@ -161,6 +168,7 @@ namespace max17851
     {
     public:
         StatusGpioRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
+        static StatusGpioRegister &Instance();
 
         uint8_t get_GPIO1_ERR();
         void set_GPIO1_ERR(uint8_t);

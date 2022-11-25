@@ -1,4 +1,4 @@
-#include <StatusRegisters.cpp>
+#include <StatusRegisters.h>
 
 namespace max17851
 {

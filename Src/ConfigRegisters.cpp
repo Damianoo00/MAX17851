@@ -332,22 +332,24 @@ namespace max17851
     {
         set(4, 2, bitField);
     }
-    uint8_t StatusDbncMaskRegister::get_STATUS_DBNC_MASK()
+    uint8_t StatusDbncMaskRegister0::get_STATUS_DBNC_MASK()
     {
         return get(0, 8);
     }
-    void StatusDbncMaskRegister::set_STATUS_DBNC_MASK(uint8_t bitField)
+    void StatusDbncMaskRegister0::set_STATUS_DBNC_MASK(uint8_t bitField)
     {
         set(0, 8, bitField);
     }
-    uint8_t StatusDbncMaskRegister::get_STATUS_DBNC_MASK()
+
+    uint8_t StatusErrorMaskRegister0::get_STATUS_ERROR_MASK()
     {
         return get(0, 8);
     }
-    void StatusDbncMaskRegister::set_STATUS_DBNC_MASK(uint8_t bitField)
+    void StatusErrorMaskRegister0::set_STATUS_ERROR_MASK(uint8_t bitField)
     {
         set(0, 8, bitField);
     }
+
     uint8_t ConfigGpio12Register::get_GPIO1_CFG()
     {
         return get(0, 3);
