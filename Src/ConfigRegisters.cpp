@@ -144,11 +144,11 @@ namespace max17851
 
     uint8_t ConfigGen4Register::get_MS_EN()
     {
-        return get(5, 2);
+        return get(4, 2);
     }
     void ConfigGen4Register::set_MS_EN(uint8_t bitField)
     {
-        set(5, 2, bitField);
+        set(4, 2, bitField);
     }
 
     uint8_t ConfigGen4Register::get_RXSWAP_EN()
