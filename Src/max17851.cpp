@@ -1,4 +1,4 @@
-#include <max17851.h>
+#include "../Inc/max17851.h"
 
 namespace max17851
 {

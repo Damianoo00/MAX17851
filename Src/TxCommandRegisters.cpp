@@ -1,4 +1,4 @@
-#include <TxCommandRegisters.h>
+#include "../Inc/TxCommandRegisters.h"
 
 namespace max17851
 {

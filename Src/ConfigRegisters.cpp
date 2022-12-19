@@ -1,4 +1,4 @@
-#include <ConfigRegisters.h>
+#include "../Inc/ConfigRegisters.h"
 
 namespace max17851
 {
