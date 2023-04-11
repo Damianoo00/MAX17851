@@ -124,8 +124,23 @@ namespace max17851
         AlertOpstateRegister(const uint8_t writeAddress, const uint8_t readAddress) : Register(writeAddress, readAddress) {}
         static AlertOpstateRegister &Instance();
 
+        uint8_t get_SAFEMON_STATUS_ERR_ALRT();
+        void set_SAFEMON_STATUS_ERR_ALRT(uint8_t);
+        
+        uint8_t get_SAFEMON_GPIO12_ALRT();
+        void set_SAFEMON_GPIO12_ALRT(uint8_t);
+
         uint8_t get_SAFEMON_ALRT();
         void set_SAFEMON_ALRT(uint8_t);
+
+        uint8_t get_SLP_STATUS_ERR_ALRT();
+        void set_SLP_STATUS_ERR_ALRT(uint8_t);
+
+        uint8_t get_SLP_ALRT();
+        void set_SLP_ALRT(uint8_t);
+
+        uint8_t get_ALRTRST();
+        void set_ALRTRST(uint8_t);
     };
 
     class AlertBufRegister : public Register

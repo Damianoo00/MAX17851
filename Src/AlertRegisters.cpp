@@ -260,13 +260,59 @@ namespace max17851
     {
         set(7, 1, bitField);
     }
-    uint8_t AlertOpstateRegister::get_SAFEMON_ALRT()
+
+     uint8_t AlertOpstateRegister::get_SAFEMON_STATUS_ERR_ALRT()
+    {
+        return get(1, 1);
+    }
+    void AlertOpstateRegister::set_SAFEMON_STATUS_ERR_ALRT(uint8_t bitField)
+    {
+        set(1, 1, bitField);
+    }
+
+     uint8_t AlertOpstateRegister::get_SAFEMON_GPIO12_ALRT()
+    {
+        return get(2, 1);
+    }
+    void AlertOpstateRegister::set_SAFEMON_GPIO12_ALRT(uint8_t bitField)
+    {
+        set(2, 1, bitField);
+    }
+
+     uint8_t AlertOpstateRegister::get_SAFEMON_ALRT()
     {
         return get(3, 1);
     }
     void AlertOpstateRegister::set_SAFEMON_ALRT(uint8_t bitField)
     {
         set(3, 1, bitField);
+    }
+
+     uint8_t AlertOpstateRegister::get_SLP_STATUS_ERR_ALRT()
+    {
+        return get(4, 1);
+    }
+    void AlertOpstateRegister::set_SLP_STATUS_ERR_ALRT(uint8_t bitField)
+    {
+        set(4, 1, bitField);
+    }
+
+    uint8_t AlertOpstateRegister::get_SLP_ALRT()
+    {
+        return get(5, 1);
+    }
+    void AlertOpstateRegister::set_SLP_ALRT(uint8_t bitField)
+    {
+        set(5, 1, bitField);
+    }
+
+    uint8_t AlertOpstateRegister::get_ALRTRST()
+    {
+        return get(7, 1);
+    }
+    void AlertOpstateRegister::set_ALRTRST(uint8_t bitField)
+    {
+        set(7, 1, bitField);
     }
     uint8_t AlertBufRegister::get_LSSM_FULL_ALRT()
     {
